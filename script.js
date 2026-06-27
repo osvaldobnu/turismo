@@ -1,6 +1,55 @@
-function favoritar(local) {
-    localStorage.setItem("favoritos", local)
+function getFavoritos() {
+    try {
+        const favs = localStorage.getItem("favoritos");
+        if (favs && !favs.startsWith("[")) {
+            return [favs];
+        }
+        return favs ? JSON.parse(favs) : [];
+    } catch (e) {
+        return [];
+    }
 }
+
+function favoritar(local) {
+    let favs = getFavoritos();
+    const index = favs.indexOf(local);
+    if (index > -1) {
+        favs.splice(index, 1);
+    } else {
+        favs.push(local);
+    }
+    localStorage.setItem("favoritos", JSON.stringify(favs));
+    atualizarBotoesFavoritos();
+}
+
+function atualizarBotoesFavoritos() {
+    const favs = getFavoritos();
+    const botoes = document.querySelectorAll(".btn-fav");
+    botoes.forEach(btn => {
+        const local = btn.getAttribute("data-local");
+        const svg = btn.querySelector("svg");
+        const span = btn.querySelector("span");
+        if (favs.includes(local)) {
+            btn.classList.add("favoritado");
+            if (svg) {
+                svg.setAttribute("fill", "var(--color-primary)");
+                svg.setAttribute("stroke", "var(--color-primary)");
+            }
+            if (span) span.textContent = "Favoritado";
+        } else {
+            btn.classList.remove("favoritado");
+            if (svg) {
+                svg.setAttribute("fill", "none");
+                svg.setAttribute("stroke", "currentColor");
+            }
+            if (span) span.textContent = "Favoritar";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    atualizarBotoesFavoritos();
+});
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker
@@ -13,25 +62,19 @@ let deferredPrompt;
 const btnInstalar = document.getElementById('btnInstalar');
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    // Impede que o mini-infobar padrão apareça em dispositivos móveis
     e.preventDefault();
-    // Guarda o evento para ser disparado depois
     deferredPrompt = e;
-    // Atualiza a UI para mostrar o botão de instalação
     if (btnInstalar) {
-        btnInstalar.style.display = 'inline-block';
+        btnInstalar.style.display = 'inline-flex';
     }
 });
 
 if (btnInstalar) {
     btnInstalar.addEventListener('click', async () => {
         if (deferredPrompt) {
-            // Mostra o prompt de instalação
             deferredPrompt.prompt();
-            // Espera a resposta do usuário
             const { outcome } = await deferredPrompt.userChoice;
             console.log(`Escolha do usuário: ${outcome}`);
-            // Limpa o prompt, pois ele só pode ser usado uma vez
             deferredPrompt = null;
             btnInstalar.style.display = 'none';
         }

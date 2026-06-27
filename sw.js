@@ -3,7 +3,10 @@ const ASSETS = [
     "./",
     "./index.html",
     "./style.css",
-    "./script.js"
+    "./script.js",
+    "./images/portal.png",
+    "./images/rota.png",
+    "./images/centro.png"
 ];
 
 // Instalação do Service Worker

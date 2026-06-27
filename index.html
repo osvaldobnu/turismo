@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blumenau Explorer</title>
+    <title>Pomerode Explorer</title>
 
-    <meta name="description" content="Guia Turístico da cidade de Blumenau">
+    <meta name="description" content="Guia Turístico da cidade de Pomerode">
 
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
@@ -14,53 +14,78 @@
 
 <body>
     <header>
-        <h1>Blumenau Explorer</h1>
+        <h1>Pomerode Explorer</h1>
         <nav>
             <a href="#">Início</a>
             <a href="#">Favoritos</a>
-            <button id="btnInstalar"
-                style="display: none; padding: 5px 10px; background-color: #0a7cff; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-left: 10px;">
+            <button id="btnInstalar" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" style="margin-right: 5px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                 Instalar App
             </button>
         </nav>
     </header>
+
     <main>
         <section class="intro">
-            <h2>Descubra Blumenau</h2>
-            <p>Guia simples, rápido e acessível com os principais pontos turísticos.</p>
+            <h2>Descubra Pomerode</h2>
+            <p>Guia exclusivo da cidade mais alemã do Brasil. Conheça a história, a cultura e a beleza do nosso vale europeu com elegância e praticidade.</p>
         </section>
+
+        <h2 class="lista-titulo">Atrações Imperdíveis</h2>
+        <p class="lista-subtitulo">Explore o melhor da cultura, da arquitetura enxaimel e das paisagens europeias em Pomerode.</p>
+
         <section class="lista">
             <article class="card">
-                <img src="https://picsum.photos/400/250?random=1" alt="Parque Vila Germânica">
-                <div>
-                    <h3>Parque Vila Germânica</h3>
-                    <p>Principal espaço para eventos da cidade, famoso pela Oktoberfest</p>
-                    <button onclick="favoritar('parquevila')">
-                        Favoritar
+                <div class="card-image-wrapper">
+                    <img src="images/portal.png" alt="Portal Turístico de Pomerode">
+                </div>
+                <div class="card-body">
+                    <h3>Portal Turístico</h3>
+                    <p>O icônico pórtico de entrada da cidade, construído no clássico estilo enxaimel alemão e cercado de belíssimos jardins floridos.</p>
+                    <button class="btn-fav" data-local="portal" onclick="favoritar('portal')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span>Favoritar</span>
                     </button>
                 </div>
             </article>
+
             <article class="card">
-                <img src="https://picsum.photos/400/250?random=2" alt="Rua XV de Novembro">
-                <div>
-                    <h3>Rua XV de Novembro</h3>
-                    <p>Centro Histórico de Blumenau</p>
-                    <button onclick="favoritar('ruaxv')">Favoritar</button>
+                <div class="card-image-wrapper">
+                    <img src="images/rota.png" alt="Rota Enxaimel">
+                </div>
+                <div class="card-body">
+                    <h3>Rota Enxaimel</h3>
+                    <p>O maior acervo de construções enxaimel fora da Europa. Um passeio rural inesquecível pela história e culinária típica alemã.</p>
+                    <button class="btn-fav" data-local="rota" onclick="favoritar('rota')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span>Favoritar</span>
+                    </button>
                 </div>
             </article>
+
             <article class="card">
-                <img src="https://picsum.photos/400/250?random=3" alt="Rua XV de Novembro">
-                <div>
-                    <h3>Museu Colonial</h3>
-                    <p>Preserva a história dos imigrantes alemães.</p>
-                    <button onclick="favoritar('museu')">Favoritar</button>
+                <div class="card-image-wrapper">
+                    <img src="images/centro.png" alt="Centro Histórico e Cultural">
+                </div>
+                <div class="card-body">
+                    <h3>Centro Cultural</h3>
+                    <p>O coração cultural de Pomerode, reunindo museus, artesanato local, eventos temáticos e a belíssima arquitetura colonial alemã.</p>
+                    <button class="btn-fav" data-local="centro" onclick="favoritar('centro')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span>Favoritar</span>
+                    </button>
                 </div>
             </article>
         </section>
     </main>
 
     <footer>
-        <p>&copy; Blumenau Explorer</p>
+        <div class="footer-links">
+            <a href="#">Sobre Nós</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Contato</a>
+        </div>
+        <p>&copy; 2026 Pomerode Explorer. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
