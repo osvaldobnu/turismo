@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blumenau Explorer</title>
+
+    <meta name="description" content="Guia Turístico da cidade de Blumenau">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Blumenau Explorer</h1>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Favoritos</a>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Descubra Blumenau</h2>
+            <p>Guia simples, rápido e acessível com os principais pontos turísticos.</p>
+        </section>
+        <section class="lista">
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=1" alt="Parque Vila Germânica">
+                <div>
+                    <h3>Parque Vila Germânica</h3>
+                    <p>Principal espaço para eventos da cidade, famoso pela Oktoberfest</p>
+                    <button onclick="favoritar('parquevila')">
+                        Favoritar
+                    </button>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=2" alt="Rua XV de Novembro">
+                <div>
+                    <h3>Rua XV de Novembro</h3>
+                    <p>Centro Histórico de Blumenau</p>
+                    <button onclick="favoritar('ruaxv')">Favoritar</button>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=3" alt="Rua XV de Novembro">
+                <div>
+                    <h3>Museu Colonial</h3>
+                    <p>Preserva a história dos imigrantes alemães.</p>
+                    <button onclick="favoritar('museu')">Favoritar</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Blumenau Explorer</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
